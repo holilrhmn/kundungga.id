@@ -2,6 +2,10 @@ body {
     padding-top: 56px;
 }
 
+body {
+    padding-top: 56px;
+}
+
 
 /* .jumbotron {
     text-shadow: #000 1px 1px;
@@ -31,9 +35,10 @@ body {
     text-shadow: 0px 0px;
 }
 
-.container-fluid-max {
+
+/* .container-fluid-max {
     max-width: 1440px;
-}
+} */
 
 .text-green {
     color: #3862ae;
@@ -41,27 +46,6 @@ body {
 
 .bg-red {
     background-color: #f25757;
-}
-
-h2:before,
-h2:after {
-    background-color: #3862ae;
-    content: "";
-    display: inline-block;
-    height: 1px;
-    position: relative;
-    vertical-align: middle;
-    width: 25%;
-}
-
-h2:before {
-    right: 0.5em;
-    margin-left: -50%;
-}
-
-h2:after {
-    left: 0.5em;
-    margin-right: -50%;
 }
 
 .button-sekunder {
@@ -80,8 +64,15 @@ h2:after {
     background: no-repeat center/cover;
 }
 
-footer {
+.footer-bottom {
     background-color: #3862ae;
+    padding: 10px;
+}
+
+.footer-top {
+    border-top: 5px solid;
+    border-color: #3862ae;
+    padding-top: 10px;
 }
 
 .nav-item a:hover {
@@ -109,7 +100,6 @@ footer {
     text-align: center;
     overflow: hidden;
     position: relative;
-    box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12)
 }
 
 .our-team .picture {
@@ -203,4 +193,55 @@ footer {
 .our-team .social li a:hover {
     color: #1369ce;
     background-color: #f7f5ec;
+}
+
+ul.timeline {
+    list-style-type: none;
+    position: relative;
+}
+
+ul.timeline:before {
+    content: ' ';
+    background: #3862ae;
+    display: inline-block;
+    position: absolute;
+    left: 29px;
+    width: 2px;
+    height: 100%;
+    z-index: 400;
+}
+
+ul.timeline>li {
+    margin: 20px 0;
+    padding-left: 20px;
+}
+
+ul.timeline>li:before {
+    content: ' ';
+    background: #f2f2f2;
+    display: inline-block;
+    position: absolute;
+    border-radius: 50%;
+    border: 3px solid #3862ae;
+    left: 20px;
+    width: 20px;
+    height: 20px;
+    z-index: 400;
+}
+
+- background: radial-gradient(circle at 30% 107%,
+#fdf497 0%,
+#fdf497 5%,
+#fd5949 45%,
+#d6249f 60%,
+#285AEB 90%);
+background: -webkit-radial-gradient(circle at 30% 107%,
+#fdf497 0%,
+#fdf497 5%,
+#fd5949 45%,
+#d6249f 60%,
+#285AEB 90%);
+background-clip: text;
+-webkit-background-clip: text;
+
 }

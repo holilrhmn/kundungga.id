@@ -1,23 +1,20 @@
 
-<section id="map" class="container-fluid text-center mt-5">
-    <h2 class="display-4 pb-4">Lihat Map</h2>
-    <p class="lead pb-3">klik Map yang Diinginkan</p>
+<section  class="container-fluid  mt-5">
+    <h3 class="text-center mb-3">Wilayah Kerajaan Kalimantan Timur</h3>
     <div class="row">
-        <div class="col-8">
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="lampung-map">
-                <g id="Bandar_Lampung" style='fill: #203c63'>
-                      <title>Kota Bandar Lampung</title>
-                      <desc>
-                        <image xlink:href="puncak_mas.jpg" alt=""></image>
-                        <p>Adalah ibu kota dari Provinsi Lampung dan merupakan kota tebesar di Provinsi Lampung. Pariwisata yang tengah ramai diminati saat ini adalah Puncak Mas Sukadanaham dari sini kita bisa melihat pemandangan alam.</p>
-                      </desc>
-                      <path d="M489.9 422.2c.15-.4.25-.65.29-.75.24-.63.76-1.12 1.41-1.32.13-.05.47-.16 1.02-.33h1.16c.43 2.16.16h1.91c.72 0 1.45-.05 2.16-.16.65-.1.81-.12 1.28-.2 1.3-.19 2.61-.17.2.56z" />
-                </g>
-                <div id="provinceInfo"></div>
-                </svg>
+        <div class="col-lg-8 col-sm-12">
+            <div class="card bg-white shadow rounded mb-5">
+                <img src="{{ asset('assets/images/Peta Sebaran_Kundungga.id_2.png') }}" class="card-img" alt="...">
+              </div>
         </div>
-        <div class="col-4">
-          
+        <div class="col-lg-4 col-sm-12">
+            <div class="card-body  shadow rounded mb-4" style="background-color:#F2F2F2;">
+                <h4 class="font-weight-bold" style="color:#867C68"><i class="fab fa-empire"></i> Daftar Kerajaan</h4>
+                <hr>
+                @foreach ($kerajaan as $k )
+                <a href="{{ route('kerajaan.show', $k->slug) }}" class="btn button-primer btn-lg btn-block rounded shadow">{{ $k->nama_kerajaan }}</a>
+                @endforeach
+            </div>
         </div>
     </div>
 </section>

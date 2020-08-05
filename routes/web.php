@@ -13,19 +13,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/artikel', function () {
-    return view('artikel');
-});
-Route::get('/kerajaan', function () {
-    return view('kerajaan');
-});
+
+Route::get('/', 'Frontend\KerajaanController@home')->name('landing.page');
+
 Route::get('/tentang-kami', function () {
     return view('tentang');
 });
 
+Route::post('newsletter','NewsletterController@store')->name('newsletter');
+
+Route::get('/linimasa', 'Frontend\TimelineController@index')->name('linimasa');
+Route::get('/article', 'Frontend\ArtikelController@index')->name('artikel');
+Route::get('/article/{slug}', 'Frontend\ArtikelController@show')->name('artikel.show');
+
+Route::get('/empire', 'Frontend\KerajaanController@index')->name('kerajaan.index');
+Route::get('/empire/{slug}', 'Frontend\KerajaanController@show')->name('kerajaan.show');
+Route::get('/galery', 'Frontend\GaleriController@index')->name('galeri');
+Route::get('/galery/{slug}', 'Frontend\GaleriController@show')->name('galeri.show');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
+});

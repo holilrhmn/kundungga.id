@@ -42,8 +42,9 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function map()
     {
+        $this->mapAdminRoutes();
+        $this->mapContributorsRoutes();
         $this->mapApiRoutes();
-
         $this->mapWebRoutes();
 
         //
@@ -56,6 +57,24 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
+    protected function mapAdminRoutes()
+    {
+        Route::middleware('web', 'auth', 'role:Admin')
+            ->prefix('admin')
+            ->name('admin.')
+            ->namespace($this->namespace . '\Admin')
+            ->group(base_path('routes/admin.php'));
+    }
+
+    protected function mapContributorsRoutes()
+    {
+        Route::middleware('web', 'auth', 'role:Contributor')
+            ->prefix('contributor')
+            ->name('contributor.')
+            ->namespace($this->namespace . '\Contributor')
+            ->group(base_path('routes/contributors.php'));
+    }
+
     protected function mapWebRoutes()
     {
         Route::middleware('web')
